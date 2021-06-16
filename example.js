@@ -1,0 +1,17 @@
+var vfile = require('to-vfile')
+var report = require('vfile-reporter')
+var unified = require('unified')
+var parse = require('remark-parse')
+var gfm = require('remark-gfm')
+var remark2rehype = require('remark-rehype')
+var stringify = require('rehype-stringify')
+
+unified()
+  .use(parse)
+  .use(gfm)
+  .use(remark2rehype)
+  .use(stringify)
+  .process(vfile.readSync('README.md'), function (err, file) {
+    console.error(report(err || file))
+    console.log(String(file))
+  })
