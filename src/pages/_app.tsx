@@ -4,6 +4,7 @@ import { DndProvider, useDrag } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import theme from '../styles/index'
 import { Flex } from '@chakra-ui/react'
+import { Provider } from 'use-http'
 
 import { Header, Footer } from '../components/organisms'
 

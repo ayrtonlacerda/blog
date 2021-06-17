@@ -7,8 +7,11 @@ import rehypeRaw from 'rehype-raw'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import style from './style'
+import { useRouter } from 'next/router'
+import useFetch from 'use-http'
 
-const components: ReactMarkdownOptions = {
+// TODO: colocar em components
+const components = {
   blockquote: ({ children }) => (
     <Box
       bg="#ededed"
@@ -28,7 +31,6 @@ const components: ReactMarkdownOptions = {
     )
   },
   code({ node, inline, className, children, ...props }) {
-    console.log({ children, inline })
     const match = /language-(\w+)/.exec(className || '')
     return !inline && match ? (
       <SyntaxHighlighter
@@ -57,20 +59,15 @@ const components: ReactMarkdownOptions = {
 }
 
 const Post = () => {
-  const [markdown1, setMarkdown] = React.useState('null')
+  const router = useRouter()
+  const { pid } = router.query
+  const { data, loading, error } = useFetch(
+    `http://127.0.0.1:8081/post/${pid}`,
+    {},
+    []
+  )
 
-  React.useEffect(() => {
-    const p = async () => {
-      try {
-        const content = await import('./test.md')
-
-        setMarkdown(content.default)
-      } catch (error) {
-        console.log({ error })
-      }
-    }
-    p()
-  })
+  console.log({ data, pid, error })
 
   return (
     <Flex
@@ -81,26 +78,18 @@ const Post = () => {
       p="12"
       px="60"
     >
-      <div>
-        <ReactMarkdown
-          components={components}
-          transformLinkUri={(href, children, title) => (
-            <LinkC href={href} color="#f734a9">
-              {children}
-            </LinkC>
-          )}
-          linkTarget={(href, children, title) => (
-            <LinkC href={href} color="#f734a9">
-              {children}
-            </LinkC>
-          )}
-          plugins={[[gfm, { singleTilde: true }]]}
-          rehypePlugins={[rehypeRaw]}
-          remarkPlugins={[gfm, breaks]}
-        >
-          {markdown1}
-        </ReactMarkdown>
-      </div>
+      {data && (
+        <div>
+          <ReactMarkdown
+            components={components}
+            plugins={[[gfm, { singleTilde: true }]]}
+            rehypePlugins={[rehypeRaw]}
+            remarkPlugins={[gfm, breaks]}
+          >
+            {data.md}
+          </ReactMarkdown>
+        </div>
+      )}
     </Flex>
   )
 }
