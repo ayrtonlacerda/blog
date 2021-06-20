@@ -34,7 +34,8 @@
     "remark-breaks": "^2.0.2",
     "remark-gfm": "^1.0.0",
     "rich-markdown-editor": "^11.10.0",
-    "use-http": "^1.0.21"
+    "use-http": "^1.0.21",
+    "zustand": "^3.5.2"
   },
   "devDependencies": {
     "@types/react": "^17.0.11",

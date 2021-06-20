@@ -4,14 +4,10 @@ import useFetch from 'use-http'
 import { CardBlog, Grid, CardRecent } from '../../components/organisms'
 
 const Home: React.FC = () => {
-  const { data: dataPosts, loading: loadingPosts } = useFetch(
-    'http://127.0.0.1:8081/posts',
-    {},
-    []
-  )
+  const { data: dataPosts, loading: loadingPosts } = useFetch('/posts', {}, [])
 
   const { data: dataRecent, loading: loadingRecent } = useFetch(
-    'http://127.0.0.1:8081/recent',
+    '/recent',
     {},
     []
   )

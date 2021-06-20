@@ -14,10 +14,12 @@ import {
   SpaceProps,
   useColorModeValue,
   Container,
-  VStack
+  VStack,
+  Flex
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { format } from 'date-fns'
+import { useUser } from 'store'
 
 interface IBlogTags {
   tags: Array<string>
@@ -63,6 +65,7 @@ export const BlogAuthor: React.FC<BlogAuthorProps> = (props) => {
 
 const CardRecent = ({ id, title, details, imageUri, createdAt }) => {
   const router = useRouter()
+  const { auth } = useUser()
   return (
     <Container maxW="full" px="24" bg="#f9fafb">
       <Heading as="h1">Mais Recente</Heading>
@@ -152,6 +155,50 @@ const CardRecent = ({ id, title, details, imageUri, createdAt }) => {
             LER ARTIGO
           </Button>
           <BlogAuthor name="John Doe" date={new Date(createdAt)} />
+          {auth && (
+            <Flex justifyContent="space-between">
+              <Button
+                onClick={() => {}}
+                width="47%"
+                marginY="8"
+                fontSize={'sm'}
+                rounded={'full'}
+                bg={'red.400'}
+                color={'white'}
+                boxShadow={
+                  '0px 1px 25px -5px rgb(255 153 225 / 48%), 0 10px 10px -5px rgb(255 153 225 / 43%)'
+                }
+                _hover={{
+                  bg: 'red.500'
+                }}
+                _focus={{
+                  bg: 'red.500'
+                }}
+              >
+                DELETAR
+              </Button>
+              <Button
+                onClick={() => {}}
+                width="47%"
+                marginY="8"
+                fontSize={'sm'}
+                rounded={'full'}
+                bg={'blue.400'}
+                color={'white'}
+                boxShadow={
+                  '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+                }
+                _hover={{
+                  bg: 'blue.500'
+                }}
+                _focus={{
+                  bg: 'blue.500'
+                }}
+              >
+                ESCONDER
+              </Button>
+            </Flex>
+          )}
         </Box>
       </Box>
     </Container>
