@@ -61,11 +61,7 @@ const components = {
 const Post = () => {
   const router = useRouter()
   const { pid } = router.query
-  const { data, loading, error } = useFetch(
-    `http://127.0.0.1:8081/post/${pid}`,
-    {},
-    []
-  )
+  const { data, loading, error } = useFetch(`/post/${pid}`, {}, [])
 
   console.log({ data, pid, error })
 
