@@ -6,9 +6,35 @@ import breaks from 'remark-breaks'
 import rehypeRaw from 'rehype-raw'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import style from './style'
 import { useRouter } from 'next/router'
 import useFetch from 'use-http'
+
+const style = {
+  h1: {
+    'font-weight': 'bold',
+    'font-size': '32px'
+  },
+
+  h2: {
+    'font-weight': 'bold',
+    'font-size': '28px'
+  },
+
+  h3: {
+    'font-weight': 'bold',
+    'font-size': '24px'
+  },
+
+  h4: {
+    'font-weight': 'bold',
+    'font-size': '20px'
+  },
+
+  h5: {
+    'font-weight': 'bold',
+    'font-size': '16px'
+  }
+}
 
 // TODO: colocar em components
 const components = {
@@ -46,10 +72,10 @@ const components = {
         {...props}
         style={{
           backgroundColor: '#ededed',
-          'padding-left': '4px',
-          'padding-right': '4px',
-          'padding-bottom': '2px',
-          'border-radius': '4px'
+          paddingLeft: '4px',
+          paddingRight: '4px',
+          paddingBottom: '2px',
+          borderRadius: '4px'
         }}
       >
         {children}
@@ -77,6 +103,7 @@ const Post = () => {
       {data && (
         <div>
           <ReactMarkdown
+            // @ts-ignore
             components={components}
             plugins={[[gfm, { singleTilde: true }]]}
             rehypePlugins={[rehypeRaw]}
