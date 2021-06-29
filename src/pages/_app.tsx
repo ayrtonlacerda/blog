@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
   const { auth } = useUser()
   console.log({ auth })
   return (
-    <Provider url="http://127.0.0.1:8082">
+    <Provider url="https://blog-ayrton.herokuapp.com/">
       <ChakraProvider theme={theme}>
         <Header />
         <Flex
