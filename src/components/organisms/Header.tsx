@@ -38,7 +38,7 @@ const Header = (props) => {
   const bg = useColorModeValue('white', 'gray.800')
   const ref = React.useRef()
   const [y, setY] = React.useState(0)
-  const { height = 0 } = ref.current ? ref.current.getBoundingClientRect() : {}
+  //const { height = 0 } = ref?.current?.getBoundingClientRect() || {}
 
   const { scrollY } = useViewportScroll()
   React.useEffect(() => {
