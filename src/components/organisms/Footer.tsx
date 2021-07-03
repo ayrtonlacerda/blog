@@ -66,11 +66,9 @@ const SocialButton = ({
 }
 
 export default function Footer() {
+  const color = useColorModeValue('bg', '#0e1218')
   return (
-    <Box
-      bg={useColorModeValue('gray.50', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}
-    >
+    <Box bg={color} color={useColorModeValue('gray.700', 'gray.200')}>
       <Container
         as={Stack}
         maxW={'6xl'}

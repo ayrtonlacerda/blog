@@ -31,11 +31,11 @@ import { FaMoon, FaSun } from 'react-icons/fa'
 import Logo from './Logo'
 
 const Header = (props) => {
+  const color = useColorModeValue('bg', '#0e1218')
   const { toggleColorMode: toggleMode } = useColorMode()
   const { auth, setAuth } = useUser()
   const text = useColorModeValue('dark', 'light')
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
-  const bg = useColorModeValue('white', 'gray.800')
   const ref = React.useRef()
   const [y, setY] = React.useState(0)
   //const { height = 0 } = ref?.current?.getBoundingClientRect() || {}
@@ -58,7 +58,7 @@ const Header = (props) => {
       p={2}
       pb={4}
       m={2}
-      bg={bg}
+      bg={color}
       spacing={3}
       rounded="sm"
       shadow="sm"
@@ -91,7 +91,7 @@ const Header = (props) => {
         ref={ref}
         transition="box-shadow 0.2s"
         //  bg={bg}
-        bg="#f9fafb"
+        bg={color}
         w="full"
         overflowY="hidden"
         position="absolute"

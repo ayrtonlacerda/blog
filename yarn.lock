@@ -2445,6 +2445,19 @@ ieee754@^1.1.4:
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
   integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
 
+imagekit-javascript@^1.3.6:
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/imagekit-javascript/-/imagekit-javascript-1.3.7.tgz#c41f2e2e182ecb4028f0f1617881e25b4b611094"
+  integrity sha512-ZPSMq3l1ql1ObQINiDWeh9Zhvs3kVsDRIeW7SSbs9ZftBKdNBt5auJhTjVdQgVOxhxPaCugV0V8W+7Jgjx3/pQ==
+
+imagekitio-react@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/imagekitio-react/-/imagekitio-react-1.0.10.tgz#580ec33e807ed4a31f4dc2c313b2f3658602080e"
+  integrity sha512-KBX+z6WoFk9rvLN/8Lx8migYx0Or5dJ5VFYHsSyvRiF3QlteIMUbo3qhKsp0GVuTSX0tebKOgqb3RxLMlC/GVg==
+  dependencies:
+    imagekit-javascript "^1.3.6"
+    prop-types "^15.7.2"
+
 import-fresh@^3.1.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-3.3.0.tgz#37162c25fcb9ebaa2e6e53d5b4d88ce17d9e0c2b"
@@ -2479,6 +2492,11 @@ invariant@^2.2.2, invariant@^2.2.4:
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
   dependencies:
     loose-envify "^1.0.0"
+
+invert-color@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/invert-color/-/invert-color-2.0.0.tgz#894ab1f7494a6e45f5e74c2f99ec042cd67dd23e"
+  integrity sha512-9s6IATlhOAr0/0MPUpLdMpk81ixIu8IqwPwORssXBauFT/4ff/iyEOcojd0UYuPwkDbJvL1+blIZGhqVIaAm5Q==
 
 is-alphabetical@^1.0.0:
   version "1.0.4"

@@ -1,5 +1,10 @@
 import '../styles/globals.css'
-import { ChakraProvider, ColorModeScript, CSSReset } from '@chakra-ui/react'
+import {
+  ChakraProvider,
+  ColorModeScript,
+  CSSReset,
+  useColorModeValue
+} from '@chakra-ui/react'
 import { DndProvider, useDrag } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import theme from '../styles/index'
@@ -11,7 +16,7 @@ import { Header, Footer } from '../components/organisms'
 
 function MyApp({ Component, pageProps }) {
   const { auth } = useUser()
-  console.log({ auth })
+  const color = useColorModeValue('bg', '#0e1218')
   return (
     <Provider url="https://blog-ayrton.herokuapp.com/">
       <ChakraProvider theme={theme}>
@@ -20,7 +25,7 @@ function MyApp({ Component, pageProps }) {
           direction="column"
           flex="1"
           justifyContent="space-between"
-          bg="#f9fafb"
+          bg={color}
           h="100vh"
           paddingTop="16"
         >

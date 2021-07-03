@@ -23,6 +23,8 @@ const MdEditor = dynamic(() => import('react-markdown-editor-lite'), {
 import { useForm } from 'react-hook-form'
 import useFetch from 'use-http'
 
+import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
+
 // import style manually
 import 'react-markdown-editor-lite/lib/index.css'
 
@@ -71,6 +73,23 @@ const Edit = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack w="80vw" spacing={4} mb="6">
           <FormControl as={GridItem} colSpan={[3, 2]}>
+            <IKContext
+              publicKey="public_TAIiaXRCB7QdqPAHkvv6Sb2sZAE="
+              urlEndpoint="https://ik.imagekit.io/tonton"
+              transformationPosition="path"
+              authenticationEndpoint="http://www.yourserver.com/auth"
+            >
+              <IKImage
+                path="/default-image.jpg"
+                transformation={[
+                  {
+                    height: '300',
+                    width: '400'
+                  }
+                ]}
+              />
+              <IKUpload fileName="my-upload" />
+            </IKContext>
             <FormLabel
               fontSize="sm"
               fontWeight="md"

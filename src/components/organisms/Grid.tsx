@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   chakra,
   Box,
@@ -6,13 +6,17 @@ import {
   Flex,
   useColorModeValue,
   Icon,
-} from "@chakra-ui/react";
+  theme
+} from '@chakra-ui/react'
+import invert from 'invert-color'
 
 const Grid = ({ children }) => {
+  const color = useColorModeValue('bg', '#0e1218')
   return (
     <Flex
-      bg={useColorModeValue("#F9FAFB", "gray.600")}
-      p={20}
+      bg={color}
+      py={10}
+      px={20}
       w="auto"
       justifyContent="center"
       alignItems="center"
@@ -23,13 +27,12 @@ const Grid = ({ children }) => {
         px={{ base: 4, lg: 8, xl: 12 }}
         py={{ base: 4, lg: 8, xl: 12 }}
         mx="auto"
-        bg={useColorModeValue("white", "gray.800")}
-        shadow="xl"
+        bg={color}
       >
         {children}
       </SimpleGrid>
     </Flex>
-  );
-};
+  )
+}
 
-export default Grid;
+export default Grid

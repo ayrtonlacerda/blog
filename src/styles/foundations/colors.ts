@@ -11,6 +11,7 @@ const colors = {
   current: "currentColor",
   black: "#000000",
   white: "#FFFFFF",
+  bg: "#F9FAFB",
 
   whiteAlpha: {
     50: "rgba(255, 255, 255, 0.04)",

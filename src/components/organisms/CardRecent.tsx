@@ -66,9 +66,12 @@ export const BlogAuthor: React.FC<BlogAuthorProps> = (props) => {
 const CardRecent = ({ id, title, details, imageUri, createdAt }) => {
   const router = useRouter()
   const { auth } = useUser()
+  const color = useColorModeValue('bg', '#0e1218')
   return (
-    <Container maxW="full" px="24" bg="#f9fafb">
-      <Heading as="h1">Mais Recente</Heading>
+    <Container maxW="full" px="24" bg={color}>
+      <Heading pl="10" as="h1">
+        Mais Recente
+      </Heading>
       <Box
         marginTop={{ base: '1', sm: '5' }}
         display="flex"

@@ -87,7 +87,7 @@ const components = {
 const Post = () => {
   const router = useRouter()
   const { pid } = router.query
-  const { data, loading, error } = useFetch(`/post/${pid}`, {}, [])
+  const { data, loading, error } = useFetch(`/posts/${pid}`, {}, [])
 
   console.log({ data, pid, error })
 
